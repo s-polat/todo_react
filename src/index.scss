@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.my-checkbox {
+  display: inline-flex;
+  align-items: center;
+}
+/* Hide the real input element */
+.my-checkbox input {
+  display: none;
+}
+.my-checkbox .fake-input {
+  display: inline-block;
+  border: 2px solid blue;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+}
+.my-checkbox input:checked + .fake-input {
+  background-color: red;
+}
