@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Todo() {
+function Todo(props) {
     return (
         <div style={{minHeight:"40vh"}}>
             <div className="card-body">
@@ -8,7 +8,7 @@ function Todo() {
                 <hr/>
                 
                 <div className="form-row">
-                    
+                    {props.addTodo}
                 </div>
 
                

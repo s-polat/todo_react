@@ -1,7 +1,47 @@
 import React from 'react'
+ import { useState } from 'react';
+/*
+// props = {text: String, onButton: Function}
+const TodoInput = (props) => {
+    const [name, setName] = useState('Wasche wäschen');
 
+    const fertig = () => {
+      props.onButton(name);
+    };
 
-function Input() {
+    const changeHandler = (event) => {
+      console.log(event.target.value);
+      setName(event.target.value);
+    };
+
+    return (
+    <div>
+      <input
+       value={name}
+       type="text"
+       placeholder="Name der Aufgaben"
+       onChange={changeHandler}
+       />
+
+      <button onClick={fertig}>{props.text}</button>
+      <p>"{name}" Hinzufügen?</p>
+    </div>
+    );
+  };
+  
+  export default TodoInput; */
+
+function Input(props) {
+    const [name, setName] = useState('');
+
+    const fertig = () => {
+      props.onButton(name);
+    };
+    //inputtan veriyi alan fonksiyon. Die Funktion,die die Werte von input bekommt
+    const changeHandler = (event) => {
+      console.log(event.target.value);
+      setName(event.target.value);
+    };
     return (
         <div style={{minHeight:"15vh"}}>
 
@@ -9,9 +49,9 @@ function Input() {
                 <form id="todo-form" name="form">
                     <div className="form">
                         <div className="form-group">
-                            <input className="form-control" style={{height:'4em'}}  type="text" name="todo" id="todo" placeholder="Enter a To Do" autocomplete="off"/>
+                            <input className="form-control" style={{height:'4em'}}  name="todo" id="todo" placeholder="Enter a To Do" autocomplete="off"  type="text" onChange={changeHandler}/>
 
-                            <button type="submit" className="btn btn-success" style={{width:'100%', marginTop:'10px', height:'4em'}} id="submit">ADD TO DO</button>
+                            <button type="submit" className="btn btn-success" style={{width:'100%', marginTop:'10px', height:'4em'}} id="submit" onClick={fertig}>ADD TO DO</button>
                         </div>
                     </div>
                 </form>
