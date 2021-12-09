@@ -11,7 +11,7 @@ function Header() {
             <div className="card-header">
                 <h1 onClick={switchLamp}>Your TO-DO App</h1>
 
-                    {lamp ? <h3> AKTIV </h3>:''}
+                    {lamp ? <h3> AKTIV </h3>:null}
 
                 </div>
         </div>
