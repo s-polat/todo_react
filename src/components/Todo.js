@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroup } from "react-bootstrap";
+
 
 function Todo(props) {
   return (
@@ -15,10 +15,10 @@ function Todo(props) {
                   <div key={index} class="card" style={{ margin: "10px", width:'300px' }}>
                     <div class="card-body">
                       <h5 class="card-title">{index+1}.TODO</h5>
-                      <p class="card-text">{todo}</p>
-                      <a href="#" class="btn btn-primary">
+                      <p class="card-text">{todo.msj}</p>
+                      <button class="btn btn-primary">
                         Completed
-                      </a>
+                      </button>
                     </div>
                   </div>
                

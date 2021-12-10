@@ -32,19 +32,25 @@ const TodoInput = (props) => {
   export default TodoInput; */
 
 function Input(props) {
-    const [name, setName] = useState('');
+    const [name, setName] = useState({});
    
     const fertig = (e) => {
       e.preventDefault();
       props.dispatch({type:'add', payload:{name:name} });
-      setName('')
+      setName({msj:''})
     };
     //inputtan veriyi alan fonksiyon. Die Funktion,die die Werte von input bekommt
     //const input=document.querySelector("#todo").value
+    let counter=0;
+    function getId(){
+       counter=counter+=1
+      return counter
+    }
     const changeHandler = () => {
       const input=document.querySelector("#todo").value
       //console.log(event.target.value);
-      setName(input);
+
+      setName({msj:input, completed:false, id:getId()});
     };
     return (
         <div style={{minHeight:"15vh"}}>
@@ -54,7 +60,7 @@ function Input(props) {
                     <div className="form">
                         <div className="form-group">
                             <input className="form-control" style={{height:'4em'}}  name="todo" id="todo" placeholder="Enter a To Do" autocomplete="off"  type="text" 
-                            value={name} onChange={changeHandler}/>
+                            value={name.msj} onChange={changeHandler}/>
 
                             <button type="submit" className="btn btn-success" style={{width:'100%', marginTop:'10px', height:'4em'}} id="submit" >ADD TO DO</button>
                         </div>
