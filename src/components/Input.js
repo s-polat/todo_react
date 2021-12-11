@@ -1,35 +1,6 @@
 import React from 'react'
  import { useState } from 'react';
-/*
-// props = {text: String, onButton: Function}
-const TodoInput = (props) => {
-    const [name, setName] = useState('Wasche wäschen');
 
-    const fertig = () => {
-      props.onButton(name);
-    };
-
-    const changeHandler = (event) => {
-      console.log(event.target.value);
-      setName(event.target.value);
-    };
-
-    return (
-    <div>
-      <input
-       value={name}
-       type="text"
-       placeholder="Name der Aufgaben"
-       onChange={changeHandler}
-       />
-
-      <button onClick={fertig}>{props.text}</button>
-      <p>"{name}" Hinzufügen?</p>
-    </div>
-    );
-  };
-  
-  export default TodoInput; */
 
 function Input(props) {
     const [name, setName] = useState({});
@@ -41,16 +12,12 @@ function Input(props) {
     };
     //inputtan veriyi alan fonksiyon. Die Funktion,die die Werte von input bekommt
     //const input=document.querySelector("#todo").value
-    let counter=0;
-    function getId(){
-       counter=counter+=1
-      return counter
-    }
+   
     const changeHandler = () => {
       const input=document.querySelector("#todo").value
       //console.log(event.target.value);
 
-      setName({msj:input, completed:false, id:getId()});
+      setName({msj:input, completed:false});
     };
     return (
         <div style={{minHeight:"15vh"}}>

@@ -8,6 +8,9 @@ function Completed({state, dispatch}) {
         <hr />
         <div className="d-flex flex-row flex-wrap justify-content-center">
           {state.map((todo, index) => {
+               const onToggle=()=>{
+                dispatch({type:'complate', payload:{index:index} })
+              }
               const onDelete=()=>{
                 dispatch({type:'delete', payload:{index:index} })
               }
@@ -21,8 +24,8 @@ function Completed({state, dispatch}) {
                   <div class="card-body">
                     <h5 class="card-title">{index + 1}.TODO</h5>
                     <p class="card-text">{todo.msj}</p>
-                    <button class="btn btn-success">Completed</button>
-                    <button onClick={onDelete} class="btn btn-danger mx-4">Delete</button>
+                    <button style={{width:'43%'}}  onClick={onToggle} class="btn btn-success mx-2 px-2 ">Completed✌</button>
+                    <button style={{width:'43%'}} onClick={onDelete} class="btn btn-danger mx-2">Delete</button>
                   </div>
                 </div>
               );
