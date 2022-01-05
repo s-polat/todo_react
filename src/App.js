@@ -3,7 +3,7 @@ import Completed from "./components/Completed";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Todo from "./components/Todo";
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 
 
 function reducer(state, action) {
@@ -32,6 +32,9 @@ function reducer(state, action) {
       arr3.splice(action.payload.index, 1);
       return arr3;
 
+    case "restore":
+      return action.payload
+
     default:
       return state;
   }
@@ -40,6 +43,23 @@ function reducer(state, action) {
 function App() {
   const initial = [];
   const [state, dispatch] = useReducer(reducer, initial);
+  console.log(state);
+
+  useEffect(() => {
+
+    const json = localStorage.getItem("todoList")
+   if (json){
+     const initialState=JSON.parse(json)
+     dispatch({type:'restore', payload:initialState })
+   }
+  }, [])
+
+  useEffect(() => {
+    const jsonState = JSON.stringify(state);
+    localStorage.setItem('todoList', jsonState)
+    
+  }, [state])
+
 
   return (
     <div className="App card">

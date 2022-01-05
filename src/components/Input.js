@@ -5,7 +5,7 @@ import React from 'react'
 function Input(props) {
     const [name, setName] = useState({});
    
-    const fertig = (e) => {
+    const submitHandler = (e) => {
       e.preventDefault();
       props.dispatch({type:'add', payload:{name:name} });
       setName({msj:''})
@@ -13,8 +13,8 @@ function Input(props) {
     //inputtan veriyi alan fonksiyon. Die Funktion,die die Werte von input bekommt
     //const input=document.querySelector("#todo").value
    
-    const changeHandler = () => {
-      const input=document.querySelector("#todo").value
+    const changeHandler = (event) => {
+      const input=event.target.value
       //console.log(event.target.value);
 
       setName({msj:input, completed:false});
@@ -23,7 +23,7 @@ function Input(props) {
         <div style={{minHeight:"15vh"}}>
 
             <div className="card-body">
-                <form onSubmit={fertig} id="todo-form" name="form">
+                <form onSubmit={submitHandler} id="todo-form" name="form">
                     <div className="form">
                         <div className="form-group">
                             <input className="form-control" style={{height:'4em'}}  name="todo" id="todo" placeholder="Enter a To Do" autocomplete="off"  type="text" 
