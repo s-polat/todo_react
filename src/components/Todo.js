@@ -34,6 +34,8 @@ function Todo({state, dispatch}) {
                   </div>
                
               );
+              }else {
+                return null
               }
               
             })}

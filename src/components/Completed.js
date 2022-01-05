@@ -30,6 +30,9 @@ function Completed({state, dispatch}) {
                 </div>
               );
             }
+            else 
+            {return null}
+
           })}
         </div>
       </div>
