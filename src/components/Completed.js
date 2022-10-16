@@ -18,14 +18,14 @@ function Completed({state, dispatch}) {
               return (
                 <div
                   key={index}
-                  class="card"
+                  className="card"
                   style={{ margin: "10px", width: "300px" }}
                 >
-                  <div class="card-body">
-                    <h5 class="card-title">{index + 1}.TODO</h5>
-                    <p class="card-text">{todo.msj}</p>
-                    <button style={{width:'43%'}}  onClick={onToggle} class="btn btn-success mx-2 px-2 ">Completed✌</button>
-                    <button style={{width:'43%'}} onClick={onDelete} class="btn btn-danger mx-2">Delete</button>
+                  <div className="card-body">
+                    <h5 className="card-title">{index + 1}.TODO</h5>
+                    <p className="card-text">{todo.msj}</p>
+                    <button style={{width:'43%'}}  onClick={onToggle} className="btn btn-primary mx-2 px-2 ">Incomplete</button>
+                    <button style={{width:'43%'}} onClick={onDelete} className="btn btn-danger mx-2">Delete</button>
                   </div>
                 </div>
               );

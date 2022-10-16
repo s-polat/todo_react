@@ -43,7 +43,6 @@ function reducer(state, action) {
 function App() {
   const initial = [];
   const [state, dispatch] = useReducer(reducer, initial);
-  console.log(state);
 
   useEffect(() => {
 
