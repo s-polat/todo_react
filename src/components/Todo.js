@@ -26,7 +26,7 @@ function Todo({state, dispatch}) {
                     <div className="card-body">
                       <h5 className="card-title">{index+1}.TODO</h5>
                       <p className="card-text">{todo.msj}</p>
-                      <button style={{width:'44%'}}  onClick={onToggle} className="btn btn-success mx-2">
+                      <button style={{width:'45%'}}  onClick={onToggle} className="btn btn-success mx-2">
                         Completed✌
                       </button>
                       <button style={{width:'42%'}}  onClick={onDelete} className="btn btn-danger mx-2">Delete</button>

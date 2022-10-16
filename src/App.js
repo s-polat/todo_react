@@ -3,13 +3,10 @@ import Completed from "./components/Completed";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Todo from "./components/Todo";
-import { useReducer, useEffect } from "react";
-
+import { useReducer, useEffect, useState } from "react";
 
 function reducer(state, action) {
-
   switch (action.type) {
-
     case "add":
       const arr = [...state];
       const todo = action.payload.name;
@@ -33,7 +30,7 @@ function reducer(state, action) {
       return arr3;
 
     case "restore":
-      return action.payload
+      return action.payload;
 
     default:
       return state;
@@ -43,26 +40,30 @@ function reducer(state, action) {
 function App() {
   const initial = [];
   const [state, dispatch] = useReducer(reducer, initial);
+  const [lamp, setLamp] = useState(false);
 
   useEffect(() => {
-
-    const json = localStorage.getItem("todoList")
-   if (json){
-     const initialState=JSON.parse(json)
-     dispatch({type:'restore', payload:initialState })
-   }
-  }, [])
+    const json = localStorage.getItem("todoList");
+    if (json) {
+      const initialState = JSON.parse(json);
+      dispatch({ type: "restore", payload: initialState });
+    }
+  }, []);
 
   useEffect(() => {
     const jsonState = JSON.stringify(state);
-    localStorage.setItem('todoList', jsonState)
-    
-  }, [state])
-
+    localStorage.setItem("todoList", jsonState);
+  }, [state]);
 
   return (
-    <div className="App card">
-      <Header />
+    <div
+      className="App card"
+      style={{
+        backgroundColor: `${lamp ? "black" : "white"}`,
+        color: `${lamp ? "white" : "black"}`,
+      }}
+    >
+      <Header lamp={lamp} setLamp={setLamp} />
       <Input dispatch={dispatch} />
 
       <Todo state={state} dispatch={dispatch} />
