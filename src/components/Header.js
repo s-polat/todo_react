@@ -5,27 +5,29 @@ function Header({ lamp, setLamp }) {
     setLamp(!lamp);
   };
   return (
-    <div
+    <div className="container "
       style={{
-        minHeight: "10vh",
         
+        position: "relative",
+        zIndex: "1",
+        width: "50%",
+       
       }}
     >
-      
-      <div className="card-header">
-      <div className="form-check form-switch d-flex" style={{justifyContent:"space-evenly"}}  onClick={switchLamp}>
-      Dark Mode
-        <input
-          className="form-check-input"
-          type="checkbox"
-          role="switch"
-          id="flexSwitchCheckDefault"
-        />
-        <label style={{marginLeft:"-50px"}}>{lamp ? "ON" : "OFF"}</label>
+      <div 
+      style={{
+        backgroundColor: "white",
+        width: "50%",
+        paddingTop: "10px",
+        position: "fixed",
+        top: "0",
+        left: "0",
+        borderBottom: "1px solid black",
         
+      }}>
+        <h1>Your TO-DO App</h1>
       </div>
-        <h1 >Your TO-DO App</h1>
-      </div>
+     
     </div>
   );
 }

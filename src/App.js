@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div
-      className="App card"
+      className="App container"
       style={{
         backgroundColor: `${lamp ? "black" : "white"}`,
         color: `${lamp ? "white" : "black"}`,
